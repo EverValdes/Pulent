@@ -1,4 +1,4 @@
-package com.example.pulent.ui.view
+package com.example.pulent.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,8 @@ import android.view.View
 import com.example.pulent.R
 import com.example.pulent.di.component.DaggerMainComponent
 import com.example.pulent.di.module.MainModule
-import com.example.pulent.ui.presenter.MainPresenter
+import com.example.pulent.mvp.presenter.MainPresenter
+import com.example.pulent.mvp.view.MainView
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 

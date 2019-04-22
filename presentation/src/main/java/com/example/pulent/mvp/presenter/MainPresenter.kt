@@ -1,6 +1,6 @@
-package com.example.pulent.ui.presenter
+package com.example.pulent.mvp.presenter
 
-import com.example.pulent.ui.view.MainView
+import com.example.pulent.mvp.view.MainView
 
 class MainPresenter(var view: MainView?) {
     fun searchButtonClicked(searchText : String) {
