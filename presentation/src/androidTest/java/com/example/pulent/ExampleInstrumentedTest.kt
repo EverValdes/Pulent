@@ -18,6 +18,7 @@ import com.example.pulent.ui.view.MainActivity
 import org.junit.Assert.*
 import org.junit.Rule
 
+const val PACKAGE_NAME = "com.example.pulent"
 class ExampleInstrumentedTest {
 
     @JvmField
@@ -28,7 +29,7 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.example.pulent", appContext.packageName)
+        assertEquals(PACKAGE_NAME, appContext.packageName)
     }
 
     @Test
@@ -45,5 +46,4 @@ class ExampleInstrumentedTest {
 
         onView(withId(R.id.loadingIndicator)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.GONE)))
     }
-
 }
