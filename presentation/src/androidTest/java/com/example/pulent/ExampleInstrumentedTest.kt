@@ -1,24 +1,49 @@
 package com.example.pulent
 
-import androidx.test.InstrumentationRegistry
-import androidx.test.runner.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.typeText
+import androidx.test.rule.ActivityTestRule
 
 import org.junit.Test
-import org.junit.runner.RunWith
+
+import androidx.test.espresso.assertion.ViewAssertions.matches
+
+import androidx.test.espresso.matcher.ViewMatchers
+
+import androidx.test.espresso.matcher.ViewMatchers.*
+import com.example.pulent.ui.view.MainActivity
 
 import org.junit.Assert.*
+import org.junit.Rule
 
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
-@RunWith(AndroidJUnit4::class)
+const val PACKAGE_NAME = "com.example.pulent"
 class ExampleInstrumentedTest {
+
+    @JvmField
+    @Rule
+    val rule = ActivityTestRule(MainActivity::class.java)
+
     @Test
     fun useAppContext() {
         // Context of the app under test.
-        val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("com.example.pulent", appContext.packageName)
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+        assertEquals(PACKAGE_NAME, appContext.packageName)
+    }
+
+    @Test
+    fun loadingIndicatorAppearance() {
+        onView(withId(R.id.searchTextInputEditText)).perform(typeText("Walk"))
+        onView(withId(R.id.searchButton)).perform(click())
+
+        onView(withId(R.id.loadingIndicator)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
+    }
+
+    @Test
+    fun searchEmptyError() {
+        onView(withId(R.id.searchButton)).perform(click())
+
+        onView(withId(R.id.loadingIndicator)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.GONE)))
     }
 }
