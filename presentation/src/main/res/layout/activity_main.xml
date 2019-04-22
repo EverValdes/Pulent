@@ -7,13 +7,41 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <TextView
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/searchTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="0dp"
+
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/searchButton"
+            >
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchTextInputEditText"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginStart="0dp"
+                android:hint="@string/search_hint"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:textSize="14sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+            android:id="@+id/searchButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:text="@string/search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+    />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
