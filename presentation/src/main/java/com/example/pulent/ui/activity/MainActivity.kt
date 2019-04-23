@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity(), MainView, JsonReader.SongRetriver {
 
     override fun performSearch(text : String) {
         runOnUiThread {
-            JsonReader(this).execute(URL)
+            JsonReader(this).execute(text)
         }
     }
 

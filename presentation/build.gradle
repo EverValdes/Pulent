@@ -14,9 +14,17 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'ITUNES_URL', '"https://itunes.apple.com/search?term="'
+            buildConfigField 'String', 'ITUNES_URL_DECORATION', '"&mediaType=music&limit=20"'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'ITUNES_URL', '"https://itunes.apple.com/search?term="'
+            buildConfigField 'String', 'ITUNES_URL_DECORATION', '"&mediaType=music&limit=20"'
         }
     }
 }
