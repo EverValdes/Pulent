@@ -1,7 +1,7 @@
 package com.example.pulent.di.module
 
-import com.example.pulent.ui.view.MainView
-import com.example.pulent.ui.presenter.MainPresenter
+import com.example.pulent.mvp.view.MainView
+import com.example.pulent.mvp.presenter.MainPresenter
 import dagger.Module
 import dagger.Provides
 

@@ -13,7 +13,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers
 
 import androidx.test.espresso.matcher.ViewMatchers.*
-import com.example.pulent.ui.view.MainActivity
+import com.example.pulent.ui.activity.MainActivity
 
 import org.junit.Assert.*
 import org.junit.Rule

@@ -1,8 +1,8 @@
 package com.example.pulent.di.component
 
 import com.example.pulent.di.module.MainModule
-import com.example.pulent.ui.presenter.MainPresenter
-import com.example.pulent.ui.view.MainActivity
+import com.example.pulent.mvp.presenter.MainPresenter
+import com.example.pulent.ui.activity.MainActivity
 import dagger.Component
 import javax.inject.Singleton
 
