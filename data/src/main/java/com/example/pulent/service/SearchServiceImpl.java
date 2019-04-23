@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class SearchServiceImpl implements SearchService {
-    private static final int SEARCH_TIMEOUT_MILLI = 1000;
+    private static final int SEARCH_TIMEOUT_MILLI = 555;
     private SearchApiService searchApiService;
     private PublishSubject<CharSequence> queryObservable;
 

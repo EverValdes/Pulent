@@ -4,17 +4,19 @@ import com.example.pulent.BuildConfig.ITUNES_URL
 import com.example.pulent.BuildConfig.ITUNES_URL_DECORATION
 import com.example.pulent.dto.ResultDTO
 import com.example.pulent.dto.SongDTO
+import com.example.pulent.mvp.strategegy.SearchStrategy
 import com.example.pulent.mvp.view.MainView
 import com.example.pulent.transformer.SongTransformer
-import models.MainUseCase
 import models.Song
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
 class MainPresenter(var view: MainView?) {
 
-
+    @Inject
+    lateinit var main : SearchStrategy
 
     fun searchButtonClicked(searchText : String) {
         if (searchText.isNotEmpty()) {
@@ -26,9 +28,7 @@ class MainPresenter(var view: MainView?) {
     }
 
     fun performSearch(text : String) {
-        val main = MainUseCase()
-
-        main.searchForText(text, object : Callback<ResultDTO> {
+        main.execute(text, object : Callback<ResultDTO> {
             override fun onResponse(call: Call<ResultDTO>, response: Response<ResultDTO>) {
                 if (response.isSuccessful && response.body() != null) {
                     view?.loadingIndicatorVisibility(false)
