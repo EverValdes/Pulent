@@ -21,7 +21,7 @@ public class SearchServiceImpl implements SearchService {
     private PublishSubject<CharSequence> queryObservable;
 
 
-    private void init(final Callback<ResultDTO> callback) {
+    private void init(String text, final Callback<ResultDTO> callback) {
         searchApiService = RetrofitBuilder.getRetrofit().create(SearchApiService.class);
 
         Observer<CharSequence> observer = new Observer<CharSequence>() {
@@ -47,11 +47,12 @@ public class SearchServiceImpl implements SearchService {
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
                 .subscribe(observer);
+
+        queryObservable.onNext(text);
     }
 
     @Override
     public void searchForText(String text, Callback<ResultDTO> callback) {
-        init(callback);
-        queryObservable.onNext(text);
+        init(text, callback);
     }
 }

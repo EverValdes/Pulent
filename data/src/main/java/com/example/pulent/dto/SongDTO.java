@@ -17,6 +17,9 @@ public class SongDTO {
     @SerializedName("artworkUrl100")
     @Expose
     private String artworkUrl100;
+    @SerializedName("collectionName")
+    @Expose
+    private String collectionName;
 
     public String getArtistName() {
         return artistName;
@@ -48,5 +51,13 @@ public class SongDTO {
 
     public void setArtworkUrl100(String artworkUrl100) {
         this.artworkUrl100 = artworkUrl100;
+    }
+
+    public String getCollectionName() {
+        return collectionName;
+    }
+
+    public void setCollectionName(String collectionName) {
+        this.collectionName = collectionName;
     }
 }
