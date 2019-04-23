@@ -3,6 +3,7 @@ package com.example.pulent.mvp.presenter
 import com.example.pulent.BuildConfig.ITUNES_URL
 import com.example.pulent.BuildConfig.ITUNES_URL_DECORATION
 import com.example.pulent.mvp.view.MainView
+import models.MainUseCase
 
 class MainPresenter(var view: MainView?) {
 
@@ -18,5 +19,10 @@ class MainPresenter(var view: MainView?) {
     fun performSearch(text : String) {
         val search = ITUNES_URL + text + ITUNES_URL_DECORATION
         view?.performSearch(search)
+
+        val main = MainUseCase()
+        main.init()
+        main.next(text)
+
     }
 }

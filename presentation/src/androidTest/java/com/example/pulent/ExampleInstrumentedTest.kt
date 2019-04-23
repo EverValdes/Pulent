@@ -18,7 +18,7 @@ import com.example.pulent.ui.activity.MainActivity
 import org.junit.Assert.*
 import org.junit.Rule
 
-const val PACKAGE_NAME = "com.example.pulent"
+const val PACKAGE_NAME = "com.example.com.example.pulent"
 class ExampleInstrumentedTest {
 
     @JvmField
