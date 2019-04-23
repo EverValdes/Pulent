@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pulent.R
 import com.example.pulent.di.component.DaggerMainComponent
 import com.example.pulent.di.module.MainModule
+import com.example.pulent.dto.SongDTO
 import com.example.pulent.mvp.presenter.MainPresenter
 import com.example.pulent.mvp.presenter.retrieve.JsonReader
 import com.example.pulent.mvp.view.MainView
@@ -51,6 +52,13 @@ class MainActivity : AppCompatActivity(), MainView, JsonReader.SongRetriver {
     }
 
     override fun retrieveSongs(songs : ArrayList<Song>) {
+        adapter = SongListAdapter(songs)
+        songRecycler.adapter = adapter
+        loadingIndicatorVisibility(false)
+    }
+
+    override fun retrieveSongList(songs: MutableList<SongDTO>) {
+        //We need a transformer for DTO to entity
         adapter = SongListAdapter(songs)
         songRecycler.adapter = adapter
         loadingIndicatorVisibility(false)

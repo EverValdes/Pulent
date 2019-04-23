@@ -5,14 +5,14 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class SearchResultModel {
+public class ResultDTO {
 
     @SerializedName("resultCount")
     @Expose
     private int resultCount;
     @SerializedName("results")
     @Expose
-    private List<ResultModel> resultModels = null;
+    private List<SongDTO> songDTOS = null;
 
     public int getResultCount() {
         return resultCount;
@@ -22,12 +22,12 @@ public class SearchResultModel {
         this.resultCount = resultCount;
     }
 
-    public List<ResultModel> getResultModels() {
-        return resultModels;
+    public List<SongDTO> getSongDTOList() {
+        return songDTOS;
     }
 
-    public void setResultModels(List<ResultModel> resultModels) {
-        this.resultModels = resultModels;
+    public void setSongDTOS(List<SongDTO> songDTOS) {
+        this.songDTOS = songDTOS;
     }
 
 }

@@ -12,9 +12,9 @@ import models.Song
 
 class SongListAdapter : RecyclerView.Adapter<SongListAdapter.ViewHolder> {
 
-    protected var list: List<Song>
+    protected var list: MutableList<Song>
 
-    constructor(list: List<Song>) {
+    constructor(list: MutableList<Song>) {
         this.list = list
     }
 

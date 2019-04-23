@@ -1,18 +1,8 @@
 package com.example.pulent.service;
 
-
-import com.example.pulent.dto.SearchResultModel;
-import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Query;
+import com.example.pulent.dto.ResultDTO;
+import retrofit2.Callback;
 
 public interface SearchService {
-
-    String ENTITY_TYPE_MUSIC_TRACK = "musicTrack";
-
-    @GET("search")
-    Call<SearchResultModel> getSearchResults(
-            @Query("term") CharSequence searchTerm,
-            @Query("entity") String entityType
-    );
+    void searchForText(String text, Callback<ResultDTO> callback);
 }
